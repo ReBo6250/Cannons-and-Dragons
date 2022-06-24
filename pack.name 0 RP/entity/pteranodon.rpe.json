@@ -1,0 +1,35 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "rebo:pteranodon",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"skin_0": "textures/entity/pteranodon/0",
+				"skin_1": "textures/entity/pteranodon/1",
+				"skin_2": "textures/entity/pteranodon/2"
+			},
+			"geometry": {
+				"default": "geometry.pteranodon"
+			},
+			"animations": {
+				"default": "animation.pteranodon.default",
+				"walk": "animation.pteranodon.walk",
+				"fly": "animation.pteranodon.fly",
+				"look_at_target": "animation.common.look_at_target",
+				
+				"root": "controller.animation.flying_dinosaurs.root"
+			},
+			"scripts": {
+				"animate": ["root", "look_at_target"]
+			},
+			"render_controllers": ["controller.render.flying_dinosaurs"],
+			"spawn_egg": {
+				"base_color": "#f1860b",
+				"overlay_color": "#92551c"
+			}
+		}
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "rebo:cannon",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/cannon"
+			},
+			"geometry": {
+				"default": "geometry.cannon"
+			},
+			"render_controllers": ["controller.render.default"],
+			"spawn_egg": {
+				"texture": "cannon",
+				"texture_index": 0
+			},
+			"animations": {
+				"fire": "animation.cannon.fire",
+				"move": "animation.cannon.move",
+				"look_at_target": "animation.cannon.look_at_target",
+
+				"root": "controller.animation.cannon.root"
+			},
+			"scripts": {
+				"initialize": ["v.ischarging = 0.0;"],
+				"animate": ["root"]
+			}
+		}
+	}
+}

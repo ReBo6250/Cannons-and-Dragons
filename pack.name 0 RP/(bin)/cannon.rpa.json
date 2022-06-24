@@ -1,0 +1,164 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.cannon.look_at_target": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"relative_to": {
+						"rotation": "entity"
+					},
+					"rotation": ["query.target_x_rotation - this", 0, 0]
+				}
+			}
+		},
+		"animation.cannon.steady_up": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"bones": {
+				"cannon": {
+					"rotation": {
+						"0.0": [-12.5, 0, 0],
+						"1.0": [19, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.cannon.steady_down": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"bones": {
+				"cannon": {
+					"rotation": {
+						"0.0": [19, 0, 0],
+						"1.0": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.cannon.move": {
+			"loop": true,
+			"animation_length": 2,
+			"bones": {
+				"bone": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.0": [3, 0, 0],
+						"2.0": [0, 0, 0]
+					}
+				},
+				"TireFront": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"2.0": [-180, 0, 0]
+					}
+				},
+				"Tireback": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"2.0": [-182.5, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.cannon.move_target_up": {
+			"loop": true,
+			"animation_length": 2,
+			"bones": {
+				"bone": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.0": [3, 0, 0],
+						"2.0": [0, 0, 0]
+					}
+				},
+				"cannon": {
+					"rotation": {
+						"0.0": [16.5, 0, 0],
+						"1.0": [19.5, 0, 0],
+						"2.0": [16.5, 0, 0]
+					}
+				},
+				"TireFront": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"2.0": [-180, 0, 0]
+					}
+				},
+				"Tireback": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"2.0": [-182.5, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.cannon.move_target_fire": {
+			"loop": true,
+			"animation_length": 2,
+			"bones": {
+				"bone": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.0": [3, 0, 0],
+						"2.0": [0, 0, 0]
+					},
+					"position": {
+						"0.4": [0, 0, 0],
+						"0.5": [0, 0, -0.5],
+						"0.8": [0, 0, 0]
+					}
+				},
+				"cannon": {
+					"rotation": {
+						"0.0": [16.5, 0, 0],
+						"1.0": [19.5, 0, 0],
+						"2.0": [16.5, 0, 0]
+					},
+					"position": {
+						"0.4": [0, 0, 0],
+						"0.5": [0, -0.6, -2.9],
+						"2.0": [0, 0, 0]
+					}
+				},
+				"TireFront": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"2.0": [-180, 0, 0]
+					}
+				},
+				"Tireback": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"2.0": [-182.5, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.cannon.steady_fire": {
+			"loop": true,
+			"animation_length": 2,
+			"bones": {
+				"bone": {
+					"position": {
+						"0.4167": [0, 0, 0],
+						"0.5": [0, 0, -0.5],
+						"0.8333": [0, 0, 0]
+					}
+				},
+				"cannon": {
+					"rotation": {
+						"0.0": [16.5, 0, 0],
+						"1.0": [19.5, 0, 0],
+						"2.0": [16.5, 0, 0]
+					},
+					"position": {
+						"0.4167": [0, 0, 0],
+						"0.5": [0, -0.6, -2.9],
+						"2.0": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

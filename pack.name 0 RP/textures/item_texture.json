@@ -1,0 +1,8 @@
+{
+  "resource_pack_name": "vanilla",
+  "texture_data": {
+    "cannon": {
+      "textures": "textures/items/cannon"
+    }
+  }
+}

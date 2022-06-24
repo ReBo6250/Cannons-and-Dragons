@@ -1,0 +1,26 @@
+{
+  "format_version": "1.18.0",
+  "minecraft:recipe_shaped": {
+    "description": {
+        "identifier": "rebo:cannon"
+        },
+    
+        "tags": [ "crafting_table" ],
+        "pattern": [
+          "  a",
+          " a ",
+          "bbb"
+        ],
+        "key": {
+          "a": {
+            "item": "minecraft:iron_block"
+          },
+          "b": {
+            "item": "minecraft:planks"
+          }
+        },
+        "result": {
+          "item": "rebo:cannon_spawn_egg"
+        }
+  }
+}

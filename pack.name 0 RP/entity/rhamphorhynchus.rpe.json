@@ -1,0 +1,35 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "rebo:rhamphorhynchus",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"skin_0": "textures/entity/rhamphorhynchus/0",
+				"skin_1": "textures/entity/rhamphorhynchus/1",
+				"skin_2": "textures/entity/rhamphorhynchus/2"
+			},
+			"geometry": {
+				"default": "geometry.rhamphorhynchus"
+			},
+			"animations": {
+				"default": "animation.rhamphorhynchus.default",
+				"walk": "animation.rhamphorhynchus.walk",
+				"fly": "animation.rhamphorhynchus.fly",
+				"look_at_target": "animation.common.look_at_target",
+				
+				"root": "controller.animation.flying_dinosaurs.root"
+			},
+			"scripts": {
+				"animate": ["root", "look_at_target"]
+			},
+			"render_controllers": ["controller.render.flying_dinosaurs"],
+			"spawn_egg": {
+				"base_color": "#ffffff",
+				"overlay_color": "#3d5cb4"
+			}
+		}
+	}
+}

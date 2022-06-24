@@ -1,0 +1,21 @@
+{
+  "format_version": "1.18.0",
+  "animation_controllers" : {
+    "controller.animation.test" : {
+      "initial_state" : "default",
+      "states" : {
+        "default" : {
+          "transitions" : [
+            { "test" : "query.is_ignited" }
+          ]
+        },
+        "test" : {
+          "on_entry": ["/say test"],
+          "transitions" : [
+            { "default" : "!query.is_ignited" }
+          ]
+        }
+      }
+    }
+  }
+}

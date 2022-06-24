@@ -1,0 +1,23 @@
+{
+    "format_version": "1.18.0",
+    "render_controllers": {
+        "controller.render.dragon": {
+            "arrays": {
+                "textures": {
+                    "array.skins": [
+                        "texture.skin_0",
+                        "texture.skin_1",
+                        "texture.skin_2",
+                        "texture.skin_3",
+                        "texture.skin_4"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [
+                {"*": "Material.default"}
+            ],
+            "textures": ["array.skins[q.variant]"]
+        }
+    }
+}

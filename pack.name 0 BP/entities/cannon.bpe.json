@@ -1,0 +1,77 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "rebo:cannon",
+			"runtime_identifier": "minecraft:ghast",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false,
+			"animations": {
+				"tag_controller.has_rider": "controller.animation.tag_controller.has_rider",
+				"tag_controller.is_tamed": "controller.animation.tag_controller.is_tamed",
+				"tag_controller.is_on_ground": "controller.animation.tag_controller.is_on_ground",
+				"tag_controller.is_moving": "controller.animation.tag_controller.is_moving",
+
+				"tag_controller": "controller.animation.tag_controller"
+
+
+
+			},
+			"scripts": {
+				"animate": ["tag_controller"]
+			}
+		},
+		"component_groups": {
+		},
+		"events": {
+		},
+		"components": {
+			"minecraft:type_family": {"family": [ "rebo", "cannon"]},
+			"minecraft:loot": {"table": "loot_tables/cannon.loot.json"},
+			"minecraft:health": {"value": 40,"max": 40},
+			"minecraft:movement": {"value": 0.1},
+			"minecraft:attack": {"damage": 4},
+			"minecraft:attack_damage": {"value": 4},
+			"minecraft:collision_box": {"width": 1.2, "height": 1.0},
+			"minecraft:knockback_resistance": {"value": 1},
+			
+			
+			"minecraft:jump.static": {},
+			"minecraft:physics": {"has_gravity": true,"has_collision": true},
+			"minecraft:pushable": {"is_pushable": true, "is_pushable_by_piston": true},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"cause": "fall",
+						"deals_damage": false
+					},
+					{
+						"cause": "entity_explosion",
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:navigation.walk": {},
+			"minecraft:movement.basic": {},
+			
+			"minecraft:rideable": {
+				"controlling_seat": 0,
+				"crouching_skip_interact": true,
+				"interact_text": "action.interact.ride",
+				"pull_in_entities": false,
+				"rider_can_interact": false,
+				"seat_count": 1,
+				"seats":{"position": [0, 0.1, -0.7]}
+			},
+
+			"minecraft:is_tamed": {},
+			"minecraft:input_ground_controlled": {},
+			
+			"minecraft:behavior.player_ride_tamed": {
+				"priority": 0
+			}
+		}
+	}
+}

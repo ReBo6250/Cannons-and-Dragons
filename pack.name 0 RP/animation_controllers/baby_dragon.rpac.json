@@ -1,0 +1,59 @@
+{
+    "format_version": "1.18.30",
+    "animation_controllers": {
+        "controller.animation.baby_dragon.root":{
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "animations": [ "move", "attack","look_at_target"]
+                }
+            }
+        },
+        "controller.animation.baby_dragon.move": {
+            "initial_state": "idle",
+            "states": {
+                "idle": {
+                    "animations": ["idle"],
+                    "blend_transition": 0.3,
+                    "transitions": [
+                        {"walk": "q.ground_speed > 0.1 && q.is_on_ground"},
+                        {"fly": "q.ground_speed > 0.1 && !q.is_on_ground"}
+                    ]
+                },
+                "walk": {
+                    "animations": ["walk"],
+                    "blend_transition": 0.3,
+                    "transitions": [
+                        {"idle": "q.ground_speed < 0.1 && q.is_on_ground"},
+                        {"fly": "q.ground_speed > 0.1 && !q.is_on_ground"}
+                    ]
+                },
+                "fly": {
+                    "animations": ["fly"],
+                    "blend_transition": 0.3,
+                    "transitions": [
+                        {"idle": "q.ground_speed < 0.1 && q.is_on_ground"},
+                        {"walk": "q.ground_speed > 0.1 && q.is_on_ground"}
+                    ]
+                }
+            }
+        },
+        "controller.animation.baby_dragon.attack": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {"shoot": "q.is_charged"}
+                    ]
+                },
+                "shoot": {
+                    "animations": ["shoot"],
+                    "blend_transition": 0.2,
+                    "transitions": [
+                        {"default": "!q.is_charged"}
+                    ]
+                }
+            }
+        }
+    }
+}

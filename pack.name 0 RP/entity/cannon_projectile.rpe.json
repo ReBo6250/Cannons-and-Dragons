@@ -1,0 +1,28 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "rebo:cannon_projectile",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/cannon_projectile",
+        "null": "textures/entity/null"
+      },
+      "geometry": {
+        "default": "geometry.fireball"
+      },
+      "animations": {
+        "billboard": "animation.actor.billboard"
+      },
+      "scripts": {
+        "scale": "0.8",
+        "animate": [
+          "billboard"
+        ]
+      },
+      "render_controllers": [ "controller.render.dragon_projectile" ]
+    }
+  }
+}

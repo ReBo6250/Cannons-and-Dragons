@@ -1,0 +1,35 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "rebo:pterodactyl",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"skin_0": "textures/entity/pterodactyl/0",
+				"skin_1": "textures/entity/pterodactyl/1",
+				"skin_2": "textures/entity/pterodactyl/0"
+			},
+			"geometry": {
+				"default": "geometry.pterodactyl"
+			},
+			"animations": {
+				"default": "animation.pterodactyl.default",
+				"walk": "animation.pterodactyl.walk",
+				"fly": "animation.pterodactyl.fly",
+				"look_at_target": "animation.common.look_at_target",
+				
+				"root": "controller.animation.flying_dinosaurs.root"
+			},
+			"scripts": {
+				"animate": ["root", "look_at_target"]
+			},
+			"render_controllers": ["controller.render.flying_dinosaurs"],
+			"spawn_egg": {
+				"base_color": "#503636",
+				"overlay_color": "#3f0f13"
+			}
+		}
+	}
+}

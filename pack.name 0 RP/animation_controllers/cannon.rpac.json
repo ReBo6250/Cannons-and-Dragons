@@ -1,0 +1,18 @@
+{
+    "format_version": "1.18.30",
+    "animation_controllers": {
+        "controller.animation.cannon.root":{
+            "initial_state": "default",
+            "states": {
+                "default":{
+                    "animations": [
+                        {"move": "q.ground_speed > 0.1"},
+                        {"fire": "q.has_target && !v.ischarging"},
+                        "look_at_target"
+                        
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "rebo:wyvern",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"skin_0": "textures/entity/wyvern/0",
+				"skin_1": "textures/entity/wyvern/1",
+				"skin_2": "textures/entity/wyvern/2",
+				"skin_3": "textures/entity/wyvern/3",
+				"skin_4": "textures/entity/wyvern/4",
+				"skin_5": "textures/entity/wyvern/5"
+			},
+			"geometry": {
+				"default": "geometry.wyvern"
+			},
+			"animations": {
+				"idle": "animation.wyvern.idle",
+				"bite": "animation.wyvern.bite",
+				"shoot": "animation.wyvern.shoot",
+				"walk": "animation.wyvern.walk",
+				"fly": "animation.wyvern.fly",
+				
+				"attack": "controller.animation.wyvern.attack",
+				"move": "controller.animation.wyvern.move",
+				"root": "controller.animation.wyvern.root"
+			},
+			"scripts": {
+				"animate": ["root"]
+			},
+			"render_controllers": ["controller.render.wyvern"],
+			"spawn_egg": {
+				"base_color": "#b89d54",
+				"overlay_color": "#b43d3d"
+			}
+		}
+	}
+}

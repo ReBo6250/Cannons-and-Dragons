@@ -1,0 +1,363 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "rebo:dragon",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false,
+			"animations": {
+				"tag_controller.has_rider": "controller.animation.tag_controller.has_rider",
+				"tag_controller.is_tamed": "controller.animation.tag_controller.is_tamed",
+				"tag_controller.is_on_ground": "controller.animation.tag_controller.is_on_ground",
+				"tag_controller.is_moving": "controller.animation.tag_controller.is_moving",
+
+				"tag_controller": "controller.animation.tag_controller"
+
+
+
+			},
+			"scripts": {
+				"animate": ["tag_controller"]
+			}
+		},
+		"component_groups": {
+
+			"cg:skin_0":{"minecraft:variant": {"value": 0}},
+			"cg:skin_1":{"minecraft:variant": {"value": 1}},
+			"cg:skin_2":{"minecraft:variant": {"value": 2}},
+			"cg:skin_3":{"minecraft:variant": {"value": 3}},
+			"cg:skin_4":{"minecraft:variant": {"value": 4}},
+
+			"cg:shoot": {
+				"minecraft:spawn_entity": {
+					"entities":[
+						{
+							"max_wait_time": 0,
+							"min_wait_time": 0,
+							"spawn_entity": "rebo:dragon_projectile",
+							"single_use": true
+						}
+					]
+				}
+			},
+
+			"cg:tamed": {
+				"minecraft:is_tamed": {},
+				"minecraft:input_ground_controlled": {},
+				
+				"minecraft:rideable": {
+					"controlling_seat": 0,
+					"crouching_skip_interact": true,
+					"family_types": ["player"],
+					"interact_text": "action.interact.ride",
+					"pull_in_entities": false,
+					"rider_can_interact": false,
+					"seat_count": 1,
+
+					"seats": [
+						{"position": [0, 1.3, 0]}
+					]
+				},
+
+				"minecraft:healable": {
+					"force_use": false,
+					"items": [
+						{"item": "minecraft:fish", "heal_amount": 4},
+						{"item": "minecraft:salmon", "heal_amount": 4},
+						{"item": "minecraft:tropical_fish", "heal_amount": 4},
+						{"item": "minecraft:mutton", "heal_amount": 4},
+						{"item": "minecraft:beef", "heal_amount": 4},
+						{"item": "minecraft:porkchop", "heal_amount": 4},
+						{"item": "minecraft:chicken", "heal_amount": 4}
+					]
+				},
+
+				"minecraft:behavior.player_ride_tamed": {
+					"priority": 0
+				},
+				"minecraft:behavior.owner_hurt_target": {
+					"priority": 1
+				},
+				"minecraft:behavior.owner_hurt_by_target": {
+					"priority": 1
+				}
+			},
+			"cg:wild": {
+				"minecraft:tameable": {
+					"probability": 0.05,
+					"tame_items":[
+						"minecraft:fish",
+						"minecraft:salmon",
+						"minecraft:tropical_fish",
+						"minecraft:beef",
+						"minecraft:porkchop",
+						"minecraft:chicken",
+						"minecraft:mutton"
+					],
+					"tame_event": {
+						"event": "e:tamed",
+						"target": "self"
+					}
+				}
+
+			},
+			"cg:walk": {
+				"minecraft:mark_variant": {"value": 0},
+
+				"minecraft:movement.basic": {},
+				"minecraft:navigation.walk": {
+					"avoid_damage_blocks": true,
+					"can_pass_doors": true,
+					"can_jump": true
+				},
+
+				"minecraft:behavior.melee_attack": {
+					"priority": 3,
+					"speed_multiplier": 1.0
+				},
+				"minecraft:behavior.follow_owner": {
+					"priority": 4,
+					"can_teleport": true,
+					"speed_multiplier": 1.3
+				},
+				"minecraft:behavior.random_stroll": {
+					"priority": 7
+				}
+			},
+			"cg:fly": {
+				"minecraft:mark_variant": {"value": 1},
+				"minecraft:can_fly": {},
+				"minecraft:balloonable": {},
+
+				
+				"minecraft:flying_speed": {
+					"value": 0.5
+				},
+				"minecraft:movement.fly": {},
+				"minecraft:navigation.fly": {
+					"avoid_damage_blocks": true,
+					"can_pass_doors": true,
+					"can_jump": true,
+					"can_path_from_air": true,
+					"can_path_over_water": true
+				},
+
+				"minecraft:behavior.float": {},
+				"minecraft:behavior.random_fly": {
+				  "priority": 7,
+				  "xz_dist": 15,
+				  "y_dist": 1,
+				  "y_offset": 0,
+				  "speed_multiplier": 4.0,
+				  "can_land_on_trees": true,
+				  "avoid_damage_blocks": true
+				},
+				"minecraft:behavior.melee_attack": {
+					"priority": 3,
+					"speed_multiplier": 4.0
+				},
+				"minecraft:behavior.follow_owner": {
+					"priority": 4,
+					"can_teleport": true,
+					"speed_multiplier": 4.0
+				}
+			},
+			"cg:change_movement": {
+				"minecraft:environment_sensor": {
+					"triggers": [
+						{
+							"filters": [
+								{
+									"all_of": [
+										{
+											"test": "has_tag",
+											"subject": "self",
+											"operator": "equals",
+											"value": "is_moving"
+										}
+									]
+								}
+							],
+							"event": "e:remove_change_movement",
+							"target": "self"
+						},
+						{
+							"filters": [
+								{
+									"all_of": [
+										{
+											"test": "is_mark_variant",
+											"value": 0
+										},
+										{
+											"test": "has_tag",
+											"subject": "self",
+											"operator": "not",
+											"value": "is_moving"
+										}
+									]
+								}
+							],
+							"event": "e:fly",
+							"target": "self"
+						},
+						{
+							"filters": [
+								{
+									"all_of": [
+										{
+											"test": "is_mark_variant",
+											"value": 1
+										},
+										{
+											"test": "has_tag",
+											"subject": "self",
+											"operator": "not",
+											"value": "is_moving"
+										},
+										{
+											"test": "has_tag",
+											"subject": "self",
+											"operator": "equals",
+											"value": "is_on_ground"
+										}
+									]
+								}
+							],
+							"event": "e:walk",
+							"target": "self"
+						}
+					]
+				}
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"sequence": [
+					{
+						"add": {"component_groups": ["cg:wild", "cg:walk"]}
+					},
+					{
+						"randomize": [
+							{"weight": 1, "add": {"component_groups": ["cg:skin_0"]}},
+							{"weight": 1, "add": {"component_groups": ["cg:skin_1"]}},
+							{"weight": 1, "add": {"component_groups": ["cg:skin_2"]}},
+							{"weight": 1, "add": {"component_groups": ["cg:skin_3"]}},
+							{"weight": 1, "add": {"component_groups": ["cg:skin_4"]}}
+						]
+					}
+				]
+			},
+			"e:shoot": {
+				"add": {"component_groups": ["cg:shoot"]}
+			},
+			"e:wild": {
+				"add": {"component_groups": ["cg:wild"]},
+				"remove": {"component_groups": ["cg:tamed"]}
+			},
+			"e:tamed": {
+				"add": {"component_groups": ["cg:tamed"]},
+				"remove": {"component_groups": ["cg:wild"]}
+			},
+			"e:walk": {
+				"add": {"component_groups": ["cg:walk"]},
+				"remove": {"component_groups": ["cg:fly", "cg:change_movement"]}
+			},
+			"e:fly": {
+				"add": {"component_groups": ["cg:fly"]},
+				"remove": {"component_groups": ["cg:walk", "cg:change_movement"]}
+			},
+			"e:change_movement":{
+				"add": {"component_groups": ["cg:change_movement"]}
+			},
+			"e:remove_change_movement":{
+				"remove": {"component_groups": ["cg:change_movement"]}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {"family": [ "rebo", "dragon", "animal"]},
+			"minecraft:loot": {"table": "loot_tables/dragon.loot.json"},
+			"minecraft:health": {"value": 60,"max": 60},
+			"minecraft:movement": {"value": 0.4},
+			"minecraft:flying_speed": {"value": 0.5},
+			"minecraft:attack": {"damage": 6},
+			"minecraft:attack_damage": {"value": 6},
+			"minecraft:experience_reward": {"on_death": 20},
+			"minecraft:collision_box": {"width": 1.6,"height": 2.0},
+			
+			
+			"minecraft:nameable": {},
+			"minecraft:leashable": {},
+			"minecraft:can_climb": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_power_jump": {},
+			"minecraft:physics": {"has_gravity": true,"has_collision": true},
+			"minecraft:pushable": {"is_pushable": true, "is_pushable_by_piston": true},
+			"minecraft:conditional_bandwidth_optimization": {},
+
+			"minecraft:timer": {
+				"looping": true,
+				"time": [7, 15],
+				"time_down_event": {
+					"event": "e:change_movement",
+					"target": "self"
+				}
+			},
+			"minecraft:damage_sensor": {
+				"triggers": [
+					{
+						"on_damage": {
+							"filters": [
+								{
+									"any_of":[
+										
+										{"test": "has_damage", "subject": "self", "value": "fall"},
+										{"test": "has_damage", "subject": "self", "value": "entity_explosion"},
+										{"test": "is_family", "subject": "damager", "value": "dragon_projectile"}
+									]
+								}
+							]
+						},
+						"deals_damage": false
+					}
+				]
+			},
+			"minecraft:fire_immune": {},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 0
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 4,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{"test": "is_family","subject": "other","value": "pterodactyl"},
+								{"test": "is_family","subject": "other","value": "pteranodon"},
+								{"test": "is_family","subject": "other","value": "rhamphorhynchus"}
+							]
+						}
+					}
+				]
+			},
+			"minecraft:behavior.tempt": {
+				"priority": 5,
+				"can_get_scared": false,
+				"can_tempt_while_ridden": false,
+				"items": [
+					"minecraft:fish",
+					"minecraft:salmon",
+					"minecraft:tropical_fish",
+					"minecraft:beef",
+					"minecraft:porkchop",
+					"minecraft:chicken",
+					"minecraft:mutton"
+				],
+				"within_radius": 10
+			},
+			"minecraft:behavior.look_at_player": {"priority": 8},
+			"minecraft:behavior.random_look_around": {"priority": 9}
+		}
+	}
+}

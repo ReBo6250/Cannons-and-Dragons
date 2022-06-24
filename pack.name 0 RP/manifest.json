@@ -1,0 +1,27 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "pack.name",
+		"description": "pack.description",
+		"uuid": "1a24e59d-781a-4d6b-a216-7a7d5b384e3f",
+		"version": [1, 0, 0],
+		"min_engine_version": [1, 16, 0]
+	},
+	"metadata": {
+		"authors": ["ReBo"]
+	},
+	"modules": [
+		{
+			"description": "pack.description",
+			"type": "resources",
+			"uuid": "fed690ae-964e-4d76-8b26-698e85695857",
+			"version": [1, 0, 0]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "64d06deb-6f7f-4d9f-8421-e89f697d8f98",
+			"version": [1, 0, 0]
+		}
+	]
+}

@@ -1,0 +1,102 @@
+{
+    "format_version": "1.18.0",
+    "animation_controllers": {
+        "controller.animation.tag_controller": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "animations": [
+                        "tag_controller.has_rider",
+                        "tag_controller.is_tamed",
+                        "tag_controller.is_on_ground",
+                        "tag_controller.is_moving"
+                    ]
+                }
+            }
+        },
+        "controller.animation.tag_controller.has_rider": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {"has_rider": "q.has_rider"}
+                    ]
+                },
+                "has_rider": {
+                    "on_entry": [
+                        "/tag @s add has_rider"
+                    ],
+                    "on_exit": [
+                        "/tag @s remove has_rider"
+                    ],
+                    "transitions": [
+                        {"default": "!q.has_rider"}
+                    ]
+                }
+            }
+        },
+        "controller.animation.tag_controller.is_tamed": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {"is_tamed": "q.is_tamed"}
+                    ]
+                },
+                "is_tamed": {
+                    "on_entry": [
+                        "/tag @s add is_tamed"
+                    ],
+                    "on_exit": [
+                        "/tag @s remove is_tamed"
+                    ],
+                    "transitions": [
+                        {"default": "!q.is_tamed"}
+                    ]
+                }
+            }
+        },
+        "controller.animation.tag_controller.is_moving": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {"is_moving": "q.modified_move_speed > 0.1"}
+                    ]
+                },
+                "is_moving": {
+                    "on_entry": [
+                        "/tag @s add is_moving"
+                    ],
+                    "on_exit": [
+                        "/tag @s remove is_moving"
+                    ],
+                    "transitions": [
+                        {"default": "q.modified_move_speed < 0.1"}
+                    ]
+                }
+            }
+        },
+        "controller.animation.tag_controller.is_on_ground": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {"is_on_ground": "q.is_on_ground"}
+                    ]
+                },
+                "is_on_ground": {
+                    "on_entry": [
+                        "/tag @s add is_on_ground"
+                    ],
+                    "on_exit": [
+                        "/tag @s remove is_on_ground"
+                    ],
+                    "transitions": [
+                        {"default": "!q.is_on_ground"}
+                    ]
+                }
+            }
+        }
+    }
+}

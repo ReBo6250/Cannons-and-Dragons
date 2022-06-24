@@ -1,0 +1,40 @@
+{
+    "format_version": "1.18.30",
+    "animation_controllers": {
+        "controller.animation.flying_dinosaurs.root":{
+            "initial_state": "default",
+            "states": {
+                "default":{
+                    "animations": [
+                        "default"
+                    ],
+                    "blend_transition": 0.2,
+                    "transitions": [
+                        {"walk": "q.ground_speed > 0.1 && q.is_on_ground"},
+                        {"fly": "q.ground_speed > 0.1 && !q.is_on_ground"}
+                    ]
+                },
+                "walk": {
+                    "animations": [
+                        "walk"
+                    ],
+                    "blend_transition": 0.3,
+                    "transitions": [
+                        {"default": "q.ground_speed < 0.1"},
+                        {"fly": "q.ground_speed > 0.1 && !q.is_on_ground"}
+                    ]
+                },
+                "fly": {
+                    "animations": [
+                        "fly"
+                    ],
+                    "blend_transition": 0.3,
+                    "transitions": [
+                        {"default": "q.ground_speed < 0.1"},
+                        {"walk": "q.ground_speed > 0.1 && q.is_on_ground"}
+                    ]
+                }
+            }
+        }
+    }
+}

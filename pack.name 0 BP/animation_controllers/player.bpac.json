@@ -1,0 +1,40 @@
+{
+  "format_version": "1.18.0",
+  "animation_controllers" : {
+    "controller.animation.player.shoot" : {
+      "initial_state" : "default",
+      "states" : {
+        "default" : {
+          "transitions" : [
+            { "shoot" : "v.attack_time > 0.1 && q.is_riding" }
+          ]
+        },
+        "shoot" : {
+          "on_entry": [
+            "/function shoot"
+          ],
+          "transitions" : [
+            { "default" : "v.attack_time < 0.1" }
+          ]
+        }
+      }
+    },
+    "controller.animation.player.riding_wyvern" : {
+      "initial_state" : "default",
+      "states" : {
+        "default" : {
+          "transitions" : [
+            { "riding_wyvern" : "q.is_riding" }
+          ]
+        },
+        "riding_wyvern" : {
+          "on_entry": ["/tag @s add is_riding"],
+          "on_exit": ["/tag @s remove is_riding"],
+          "transitions" : [
+            { "default" : "!q.is_riding" }
+          ]
+        }
+      }
+    }
+  }
+}

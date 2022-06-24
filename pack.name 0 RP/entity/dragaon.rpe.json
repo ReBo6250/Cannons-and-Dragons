@@ -1,0 +1,38 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "rebo:dragon",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"skin_0": "textures/entity/dragon/0",
+				"skin_1": "textures/entity/dragon/1",
+				"skin_2": "textures/entity/dragon/2",
+				"skin_3": "textures/entity/dragon/3",
+				"skin_4": "textures/entity/dragon/4"
+			},
+			"geometry": {
+				"default": "geometry.dragon"
+			},
+			"animations": {
+				"idle": "animation.dragon.idle",
+				"walk": "animation.dragon.walk",
+				"fly": "animation.dragon.fly",
+				"look_at_target": "animation.common.look_at_target",
+				
+				"move": "controller.animation.dragon.move",
+				"root": "controller.animation.dragon.root"
+			},
+			"scripts": {
+				"animate": ["root"]
+			},
+			"render_controllers": ["controller.render.dragon"],
+			"spawn_egg": {
+				"base_color": "#88333a",
+				"overlay_color": "#062512"
+			}
+		}
+	}
+}

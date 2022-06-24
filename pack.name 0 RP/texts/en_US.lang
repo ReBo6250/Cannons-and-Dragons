@@ -1,0 +1,35 @@
+pack.name=Addon Name
+pack.description=Addon Description
+
+action.interact.feed=Feed
+action.interact.ride=Ride
+
+action.hint.exit.rebo:cannon=§gCannon balls: §0█████§r
+action.hint.exit.rebo:baby_dragon=§gFireballs: §0█████§r
+action.hint.exit.rebo:dragon=§gFireballs: §0█████§r
+action.hint.exit.rebo:wyvern=§gFireballs: §0█████§r
+action.hint.exit.rebo:pteranodon=Press "CROUCH" to unmount
+action.hint.exit.rebo:pterodactyl=Press "CROUCH" to unmount
+action.hint.exit.rebo:rhamphorhynchus=Press "CROUCH" to unmount
+
+entity.rebo:baby_dragon.name=Baby Dragon
+item.spawn_egg.entity.rebo:baby_dragon.name=Spawn Baby Dragon
+
+entity.rebo:dragon.name=Dragon
+item.spawn_egg.entity.rebo:dragon.name=Spawn Dragon
+
+entity.rebo:wyvern.name=Wyvern
+item.spawn_egg.entity.rebo:wyvern.name=Spawn Wyvern
+
+entity.rebo:cannon.name=Cannon
+item.spawn_egg.entity.rebo:cannon.name=Spawn Cannon
+
+entity.rebo:pteranodon.name=Pteranodon
+item.spawn_egg.entity.rebo:pteranodon.name=Spawn Pteranodon
+
+entity.rebo:pterodactyl.name=Pterodactyl
+item.spawn_egg.entity.rebo:pterodactyl.name=Spawn Pterodactyl
+
+entity.rebo:rhamphorhynchus.name=Rhamphorhynchus
+item.spawn_egg.entity.rebo:rhamphorhynchus.name=Spawn Rhamphorhynchus
+

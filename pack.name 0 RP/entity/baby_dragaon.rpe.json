@@ -1,0 +1,41 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "rebo:baby_dragon",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"skin_0": "textures/entity/baby_dragon/0",
+				"skin_1": "textures/entity/baby_dragon/1",
+				"skin_2": "textures/entity/baby_dragon/2",
+				"skin_3": "textures/entity/baby_dragon/3",
+				"skin_4": "textures/entity/baby_dragon/4",
+				"skin_5": "textures/entity/baby_dragon/5"
+			},
+			"geometry": {
+				"default": "geometry.baby_dragon"
+			},
+			"animations": {
+				"idle": "animation.baby_dragon.idle",
+				"shoot": "animation.baby_dragon.shoot",
+				"walk": "animation.baby_dragon.walk",
+				"fly": "animation.baby_dragon.fly",
+				"look_at_target": "animation.baby_dragon.look_at_target",
+				
+				"attack": "controller.animation.baby_dragon.attack",
+				"move": "controller.animation.baby_dragon.move",
+				"root": "controller.animation.baby_dragon.root"
+			},
+			"scripts": {
+				"animate": ["root"]
+			},
+			"render_controllers": ["controller.render.baby_dragon"],
+			"spawn_egg": {
+				"base_color": "#68ec1b",
+				"overlay_color": "#062512"
+			}
+		}
+	}
+}
